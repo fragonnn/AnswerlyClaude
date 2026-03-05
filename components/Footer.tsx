@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* Copyright + Social icons */}
         <div className="border-t border-gray-700 pt-8 flex items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm">&copy; 2024 Quasi. All rights reserved.</p>
+          <p className="text-gray-400 text-sm">&copy; 2026 Answerly. All rights reserved.</p>
 
           {/* Social icons — desktop only */}
           {/* TODO: Replace href="#" with real social media URLs */}

@@ -121,7 +121,7 @@ export default function WhyChooseUs() {
                   className={`text-[13px] leading-relaxed transition-colors duration-300 lg:max-w-[277px] ${
                     highlighted
                       ? "text-blue-100"
-                      : "text-gray-500 group-hover:text-blue-100"
+                      : "text-gray-600 group-hover:text-blue-100"
                   }`}
                 >
                   {desc}

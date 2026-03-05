@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 // CSS columns flow top→bottom per column:
@@ -64,10 +62,10 @@ export default function Testimonials() {
     <section className="py-10 md:py-16 lg:py-24 px-4 overflow-hidden">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-8 md:mb-10 lg:mb-14">
-        <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[50px] font-semibold text-[#242E49] leading-none mb-3 md:mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+        <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[50px] font-semibold text-[#242E49] leading-none mb-3 md:mb-4">
           Testimonials
         </h2>
-        <p className="text-[14px] md:text-[15px] lg:text-[17px] font-normal text-[#242E49] leading-[135%] max-w-[442px] mx-auto" style={{ fontFamily: "Roboto, sans-serif" }}>
+        <p className="text-[14px] md:text-[15px] lg:text-[17px] font-normal text-[#242E49] leading-[135%] max-w-[442px] mx-auto">
           &quot;Don&apos;t just take our word for it &mdash; hear from real
           users who have received expert answers to their most pressing
           questions&quot;
@@ -96,7 +94,7 @@ export default function Testimonials() {
                   t.large ? "md:h-[378px] lg:h-[460px]" : "md:h-[220px] lg:h-[238px]"
                 }`}
               >
-                <p className="text-[#30353A] text-[16px] md:text-[17px] lg:text-[18px] font-medium leading-[130%] max-w-[319px]" style={{ fontFamily: "'Creato Display', sans-serif" }}>{t.text}</p>
+                <p className="text-[#30353A] text-[16px] md:text-[17px] lg:text-[18px] font-medium leading-[130%] max-w-[319px]">{t.text}</p>
 
                 <div className="flex-1" />
 
@@ -113,10 +111,10 @@ export default function Testimonials() {
                     className="rounded-full object-cover"
                   />
                   <div>
-                    <p className="text-[#727272] text-[16px] md:text-[17px] lg:text-[18px] font-medium leading-none" style={{ fontFamily: "'Creato Display', sans-serif" }}>
+                    <p className="text-[#727272] text-[16px] md:text-[17px] lg:text-[18px] font-medium leading-none">
                       {t.name}
                     </p>
-                    <p className="text-[#181A1C] text-[14px] lg:text-[15px] font-medium leading-none mt-1.5" style={{ fontFamily: "'Creato Display', sans-serif" }}>
+                    <p className="text-[#181A1C] text-[14px] lg:text-[15px] font-medium leading-none mt-1.5">
                       {t.role}
                     </p>
                   </div>

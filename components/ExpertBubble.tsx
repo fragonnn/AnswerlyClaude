@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface ExpertBubbleProps {
   /** One or two chat messages displayed as speech bubbles */
   messages: string[];
@@ -15,10 +17,12 @@ interface ExpertBubbleProps {
 function Avatar({ avatar, style }: { avatar?: string; style: React.CSSProperties }) {
   if (avatar) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img
+      <Image
         src={avatar}
         alt=""
+        width={44}
+        height={44}
+        sizes="44px"
         className="w-11 h-11 rounded-full object-cover shadow-lg shrink-0"
       />
     );

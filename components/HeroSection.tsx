@@ -360,6 +360,7 @@ export default function HeroSection() {
                 </span>
                 <button
                   onClick={() => setShowMore(false)}
+                  aria-label="Close categories"
                   className="w-6 h-6 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors"
                 >
                   <svg
@@ -402,6 +403,9 @@ export default function HeroSection() {
         {/* Textarea Input Card */}
         <div className="w-full max-w-2xl bg-white rounded-3xl shadow-xl p-5">
           <textarea
+            id="question"
+            name="question"
+            aria-label="Ask your question"
             value={inputValue}
             onChange={handleChange}
             onKeyDown={handleKeyDown}
@@ -410,7 +414,7 @@ export default function HeroSection() {
             className="w-full text-sm text-gray-700 placeholder-gray-400 leading-relaxed bg-transparent border-none resize-none focus:outline-none"
           />
           <div className="flex items-center justify-end gap-3 pt-2 border-t border-gray-100 mt-1">
-            <span className="text-xs text-gray-400 select-none">
+            <span className="text-xs text-gray-500 select-none">
               {inputValue.length}/{MAX_CHARS}
             </span>
             <button

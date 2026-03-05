@@ -23,6 +23,7 @@ export default function CTA() {
             alt="Expert chat on mobile"
             width={505}
             height={505}
+            sizes="(max-width: 1024px) 300px, 460px"
             className="object-contain w-[300px] lg:w-[460px] h-auto"
           />
         </div>

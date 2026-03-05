@@ -10,7 +10,7 @@ export default function Navbar() {
   const isHome = pathname === "/";
 
   const navLinks = [
-    { label: "Home", href: isHome ? "#" : "/" },
+    { label: "Home", href: isHome ? "#hero" : "/" },
     { label: "How It Works", href: isHome ? "#how-it-works" : "/#how-it-works" },
     { label: "FAQ", href: isHome ? "#faq" : "/#faq" },
     { label: "Categories", href: isHome ? "#categories" : "/#categories" },
@@ -57,6 +57,7 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
+              aria-expanded={menuOpen}
               className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors"
             >
               <svg

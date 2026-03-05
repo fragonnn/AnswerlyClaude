@@ -52,6 +52,7 @@ export default function FAQ() {
           <div key={faq.question} className="bg-[#F5F5F5] rounded-[15px] px-5 md:px-6">
             <button
               onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
+              aria-expanded={openIndex === i}
               className="w-full flex items-center justify-between py-5 text-left cursor-pointer"
             >
               <span className="text-[#0f172a] font-semibold text-sm md:text-base pr-4">
@@ -62,6 +63,7 @@ export default function FAQ() {
                 height="20"
                 viewBox="0 0 20 20"
                 fill="none"
+                aria-hidden="true"
                 className={`shrink-0 transition-transform duration-300 ${
                   openIndex === i ? "rotate-180" : ""
                 }`}
@@ -78,7 +80,7 @@ export default function FAQ() {
 
             <div
               className={`overflow-hidden transition-all duration-300 ${
-                openIndex === i ? "max-h-[300px] pb-5" : "max-h-0"
+                openIndex === i ? "max-h-[500px] pb-5" : "max-h-0"
               }`}
             >
               <p className="text-gray-500 text-sm leading-relaxed">

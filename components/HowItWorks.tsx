@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function HowItWorks() {
   return (
     <section id="how-it-works" className="bg-white overflow-hidden scroll-mt-20">
@@ -22,11 +24,13 @@ export default function HowItWorks() {
 
         {/* Curve with positioned steps */}
         <div className="relative w-full max-w-[340px] mx-auto overflow-visible">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/curve%20mobile.png"
             alt=""
-            aria-hidden="true"
+            aria-hidden
+            width={340}
+            height={859}
+            sizes="(max-width: 340px) 100vw, 340px"
             className="w-full h-auto block"
             draggable={false}
           />
@@ -50,7 +54,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[22px] text-[#242E49] leading-snug mb-1">
               Ask Your Question
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Submit your question and provide a few details to help us connect
               you to the right expert.
             </p>
@@ -75,7 +79,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[22px] text-[#242E49] leading-snug mb-1">
               Get Matched
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[243px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[243px]">
               Within minutes, you&apos;ll be connected to an expert specialising
               in your query.
             </p>
@@ -100,7 +104,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[21px] text-[#242E49] leading-snug mb-1">
               Receive Your Answer
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Your expert will provide a detailed answer, and you can ask
               follow-up questions as needed.
             </p>
@@ -122,7 +126,7 @@ export default function HowItWorks() {
             detailed guidance.
           </p>
           <a
-            href="#"
+            href="/pricing"
             className="inline-flex items-center justify-center w-[175px] h-[57px] bg-[#0F67FD] text-white text-sm font-semibold rounded-[15px] hover:bg-blue-700 transition-colors shadow-sm mb-10"
           >
             Join Beta
@@ -165,7 +169,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[22px] text-[#242E49] leading-snug mb-1">
               Ask Your Question
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Submit your question and provide a few details to help us connect
               you to the right expert.
             </p>
@@ -190,7 +194,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[22px] text-[#242E49] leading-snug mb-1">
               Get Matched
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Within minutes, you&apos;ll be connected to an expert specialising
               in your query.
             </p>
@@ -215,7 +219,7 @@ export default function HowItWorks() {
             <p className="font-bold text-[21px] text-[#242E49] leading-snug mb-1">
               Receive Your Answer
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Your expert will provide a detailed answer, and you can ask
               follow-up questions as needed.
             </p>
@@ -247,11 +251,13 @@ export default function HowItWorks() {
 
         {/* Curve image + steps — full container width, overflow visible for step-1 text */}
         <div className="relative w-full overflow-visible">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/curve.png"
             alt=""
-            aria-hidden="true"
+            aria-hidden
+            width={1200}
+            height={400}
+            sizes="(max-width: 1200px) 100vw, 1200px"
             className="w-full h-auto block"
             draggable={false}
           />
@@ -280,7 +286,7 @@ export default function HowItWorks() {
             <p className="text-[22px] font-bold text-gray-900 leading-tight mb-4">
               Ask Your Question
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Submit your question and provide a few details to help us connect
               you to the right expert.
             </p>
@@ -310,7 +316,7 @@ export default function HowItWorks() {
             <p className="text-[22px] font-bold text-gray-900 leading-tight mb-4">
               Get Matched
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Within minutes, you&apos;ll be connected to an expert specialising
               in your query.
             </p>
@@ -343,7 +349,7 @@ export default function HowItWorks() {
             <p className="text-[22px] font-bold text-gray-900 leading-tight mb-4">
               Receive Your Answer
             </p>
-            <p className="text-[#242E49] font-roboto text-[15px] font-normal leading-[135%] w-[274px]">
+            <p className="text-[#242E49] text-[15px] font-normal leading-[135%] w-[274px]">
               Your expert will provide a detailed answer, and you can ask
               follow-up questions as needed.
             </p>

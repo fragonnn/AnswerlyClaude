@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback, useSyncExternalStore } from "react";
+import Image from "next/image";
 
 const experts = [
   {
@@ -80,8 +81,16 @@ function Stars({ rating }: { rating: number }) {
 
 export default function MeetOurExperts() {
   const subscribe = useCallback((cb: () => void) => {
-    window.addEventListener("resize", cb);
-    return () => window.removeEventListener("resize", cb);
+    let timeout: ReturnType<typeof setTimeout>;
+    const handler = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(cb, 150);
+    };
+    window.addEventListener("resize", handler);
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("resize", handler);
+    };
   }, []);
   const vw = useSyncExternalStore(subscribe, () => window.innerWidth, () => 0);
   // index into looped[]; 1 = real first card
@@ -131,13 +140,30 @@ export default function MeetOurExperts() {
     }
   }, [animated]);
 
-  // Prevent page scroll during horizontal swipe
+  // Prevent page scroll only during horizontal swipe (not vertical)
+  const touchStartY = useRef(0);
+  const isHorizontalSwipe = useRef(false);
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-    const prevent = (e: TouchEvent) => e.preventDefault();
-    el.addEventListener("touchmove", prevent, { passive: false });
-    return () => el.removeEventListener("touchmove", prevent);
+    const onStart = (e: TouchEvent) => {
+      touchStartY.current = e.touches[0].clientY;
+      isHorizontalSwipe.current = false;
+    };
+    const onMove = (e: TouchEvent) => {
+      const dx = Math.abs(e.touches[0].clientX - dragStartX.current);
+      const dy = Math.abs(e.touches[0].clientY - touchStartY.current);
+      if (!isHorizontalSwipe.current && dx > dy && dx > 10) {
+        isHorizontalSwipe.current = true;
+      }
+      if (isHorizontalSwipe.current) e.preventDefault();
+    };
+    el.addEventListener("touchstart", onStart, { passive: true });
+    el.addEventListener("touchmove", onMove, { passive: false });
+    return () => {
+      el.removeEventListener("touchstart", onStart);
+      el.removeEventListener("touchmove", onMove);
+    };
   }, []);
 
   const goNext = useCallback(() => {
@@ -266,7 +292,7 @@ active:scale-95"
   );
 
   return (
-    <section id="categories" className="bg-[#0f172a] py-12 md:py-16 lg:py-24 overflow-hidden scroll-mt-20">
+    <section id="categories" aria-label="Meet Our Experts" className="bg-[#0f172a] py-12 md:py-16 lg:py-24 overflow-hidden scroll-mt-20">
       {/* Header row */}
       <div className="max-w-[1200px] mx-auto px-8 xl:px-12 mb-10">
         <div className="flex flex-col items-center md:flex-row md:items-start md:justify-between">
@@ -358,9 +384,9 @@ active:scale-95"
               <span className="inline-block self-start text-[11px] font-semibold tracking-wide uppercase text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1 rounded-full mb-3">
                 {expert.specialty}
               </span>
-              <h4 className="text-[20px] font-bold text-white leading-snug mb-2">
+              <h3 className="text-[20px] font-bold text-white leading-snug mb-2">
                 {expert.name}
-              </h4>
+              </h3>
               <p className="text-[13px] text-gray-300 leading-relaxed mb-4">
                 {expert.desc}
               </p>
@@ -373,17 +399,22 @@ active:scale-95"
             </div>
 
             {/* Expert image — left on desktop, bottom on mobile */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={expert.image}
-              alt={expert.name}
-              className="object-cover rounded-[15px] pointer-events-none order-last lg:order-first w-full lg:w-[346px] shrink-0"
+            <div
+              className="relative rounded-[15px] overflow-hidden order-last lg:order-first w-full lg:w-[346px] shrink-0"
               style={{
                 height: vw < 1024 ? 262 : "100%",
                 background: "#D9D9D9",
               }}
-              draggable={false}
-            />
+            >
+              <Image
+                src={expert.image}
+                alt={expert.name}
+                fill
+                sizes="(max-width: 639px) 78vw, (max-width: 1023px) 50vw, 346px"
+                className="object-cover pointer-events-none"
+                draggable={false}
+              />
+            </div>
 
             {/* Text content — right on desktop, top on mobile */}
             <div className="flex-1 flex flex-col gap-[10px] justify-center min-w-0">
@@ -406,7 +437,7 @@ active:scale-95"
               {/* Stars + Review count */}
               <div className="flex items-center gap-2 lg:mt-4">
                 <Stars rating={expert.rating} />
-                <span className="text-[11px] text-gray-400">
+                <span className="text-[11px] text-gray-600">
                   ({expert.rating}/5 from{" "}
                   {expert.reviews.toLocaleString("en-US")} reviews)
                 </span>
