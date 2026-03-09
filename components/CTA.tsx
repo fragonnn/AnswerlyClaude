@@ -13,18 +13,18 @@ export default function CTA() {
         className="max-w-[1240px] h-auto lg:h-[463px] mx-auto rounded-[25px] relative overflow-hidden flex flex-col-reverse lg:flex-row items-center"
         style={{
           background:
-            "radial-gradient(26.86% 50% at 50% 50%, #0F67FD 0%, #D0E4FE 100%)",
+            "radial-gradient(30.86% 48% at 25% 50%, #0060d1 0%, rgb(208, 228, 254) 100%)",
         }}
       >
-        {/* Phone mockup image — pinned to bottom, overflows top */}
-        <div className="relative shrink-0 w-full lg:w-auto lg:relative lg:bottom-0 lg:left-[60px]  lg:mt-20  flex items-end justify-center">
+        {/* Phone mockup image */}
+        <div className="relative shrink-0 w-full lg:w-auto lg:relative lg:bottom-0 lg:left-[60px] lg:mt-20 flex items-end justify-center">
           <Image
             src="/cta-img1.png"
             alt="Expert chat on mobile"
             width={505}
             height={505}
             sizes="(max-width: 1024px) 300px, 460px"
-            className="object-contain w-[300px] lg:w-[460px] h-auto"
+            className="relative z-10 object-contain w-[300px] lg:w-[460px] h-auto"
           />
         </div>
 
